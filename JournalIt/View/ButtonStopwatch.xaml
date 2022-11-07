@@ -1,0 +1,54 @@
+﻿<ToggleButton x:Class="JournalIt.View.ButtonStopwatch"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:converters ="clr-namespace:JournalIt.View.Converters"
+              mc:Ignorable="d"
+              d:DesignHeight="50"
+              d:DesignWidth="90"
+              MinWidth="90"
+              Width="{Binding Path=CogBox.Common.UI.StopwatchWidth}"
+              IsChecked="{Binding Path=IsOn, Mode=TwoWay}" 
+              VerticalContentAlignment="Bottom" 
+              HorizontalContentAlignment="Left"
+              Style="{StaticResource styleButtonStopwatch}">
+    <ToggleButton.Resources>
+        <converters:FontSizeConverter x:Key="fontSizeConverter"/>
+        <converters:StringToVisibiltyConverter x:Key="stringToVisibiltyConverter"/>
+    </ToggleButton.Resources>
+
+
+    <DockPanel Margin="0">
+
+        <TextBlock Tag="This displays the type of activity."
+                   DockPanel.Dock="Bottom"
+                   Margin="3,-1,3,1"
+                   Text="{Binding Path=Activity, Mode=OneWay}"
+                   Visibility="{Binding Path=Activity, 
+                                        Converter={StaticResource stringToVisibiltyConverter}}"/>
+
+        <TextBlock Tag="This displays the project."
+                   DockPanel.Dock="Bottom"
+                   Margin="3,-1"
+                   TextTrimming="CharacterEllipsis"
+                   Text="{Binding Path=Project.Name, Mode=OneWay}"
+                   Visibility="{Binding Project.Name, 
+                        Converter={StaticResource stringToVisibiltyConverter}}"/>
+
+        <TextBlock Tag="This displays the subject."
+                   DockPanel.Dock="Bottom"
+                   Margin="3,-1"
+                   TextTrimming="CharacterEllipsis"
+                   Text="{Binding Path=Subject, Mode=OneWay}"
+                   Visibility="{Binding Subject, 
+                        Converter={StaticResource stringToVisibiltyConverter}}"/>
+
+        <TextBlock Tag="This displays the time elapsed in hh:mm:ss."
+                   FontSize="{Binding Path=IsOn, Converter={StaticResource fontSizeConverter}}"
+                   Text="{Binding Path=TimeEllapsedString, Mode=OneWay}"
+                   DockPanel.Dock="Bottom" 
+                   Margin="3,-1" 
+                   TextTrimming="CharacterEllipsis"/>
+    </DockPanel>
+    </ToggleButton>

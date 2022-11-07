@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JournalItTimeEntry>
+    <Subject>{string}</Subject>
+    <Notes>{string}</Notes>
+    <Type{string}</Type>
+	<DateTimeStart>{DateTime}</DateTimeStart>
+	<SecondsEllapsed>{TimeSpan}</SecondsEllapsed>
+	<Company>{string}</Company>
+    <ProjectId>{int}</ProjectId>
+    <Contacts>
+      <ContactId>{int}/ContactId>
+    </Contacts>
+  </JournalItTimeEntry>

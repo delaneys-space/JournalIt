@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DB91745-7A6F-4283-8232-FAB7606E22AC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JournalIt</RootNamespace>
+    <AssemblyName>Delaneys Journal It</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Stopwatch.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Properties\JournalIt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>JournalIt.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ExportToExcel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\UI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>UI.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CogBox.cs" />
+    <Compile Include="ViewModel\Company.cs" />
+    <Compile Include="ViewModel\Contact.cs" />
+    <Compile Include="ViewModel\Project.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\Setting\JournalIt.cs" />
+    <Compile Include="ViewModel\Setting\Common.cs" />
+    <Compile Include="ViewModel\Stopwatch.cs" />
+    <Compile Include="ViewModel\Activity.cs" />
+    <Compile Include="ViewModel\Setting\UI.cs" />
+    <Compile Include="ViewModel\ViewModelAbstract.cs" />
+    <Compile Include="View\ButtonStopwatch.xaml.cs">
+      <DependentUpon>ButtonStopwatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsoleManager.cs" />
+    <Compile Include="View\Converters.cs" />
+    <Compile Include="View\CtrlAbout.xaml.cs">
+      <DependentUpon>CtrlAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtrlDefaultOptions.xaml.cs">
+      <DependentUpon>CtrlDefaultOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtrlExportOptions.xaml.cs">
+      <DependentUpon>CtrlExportOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtrlMessage.xaml.cs">
+      <DependentUpon>CtrlMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtrlViewOptions.xaml.cs">
+      <DependentUpon>CtrlViewOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmJournalIt.xaml.cs">
+      <DependentUpon>FrmJournalIt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmOptions.xaml.cs">
+      <DependentUpon>FrmOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmStopwatch.xaml.cs">
+      <DependentUpon>FrmStopwatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MaskedTextBox.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Themes\WindowResizer.cs" />
+    <Compile Include="View\Themes\WindowStyle.xaml.cs">
+      <DependentUpon>WindowStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WrapPanelArrange.cs" />
+    <Page Include="View\ButtonStopwatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtrlAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtrlDefaultOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtrlExportOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtrlMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtrlViewOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FrmJournalIt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FrmOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FrmStopwatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RecourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Skins\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Skins\None.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\WindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\WindowStyleWin7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\WindowStyleXP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\Stopwatch.cs" />
+    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\JournalIt.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>JournalIt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Properties\UI.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>UI.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notes\Stopwatch Sample Xml.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Stopwatches\Stopwatch-264x264.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Key-Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Key-Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Themes\Images\Adobe\Close Highlighted.png" />
+    <Resource Include="View\Themes\Images\Adobe\Close Normal.png" />
+    <Resource Include="View\Themes\Images\Adobe\Maximize Highlighted.png" />
+    <Resource Include="View\Themes\Images\Adobe\Maximize Normal.png" />
+    <Resource Include="View\Themes\Images\Adobe\Minimize Highlighted.png" />
+    <Resource Include="View\Themes\Images\Adobe\Minimize Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Themes\Images\Adobe\Close Normal Timers.png" />
+    <Resource Include="View\Themes\Images\Adobe\Minimize Normal Timers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\PieClocks\00.png" />
+    <Resource Include="View\Images\PieClocks\05.png" />
+    <Resource Include="View\Images\PieClocks\10.png" />
+    <Resource Include="View\Images\PieClocks\15.png" />
+    <Resource Include="View\Images\PieClocks\25.png" />
+    <Resource Include="View\Images\PieClocks\30.png" />
+    <Resource Include="View\Images\PieClocks\35.png" />
+    <Resource Include="View\Images\PieClocks\40.png" />
+    <Resource Include="View\Images\PieClocks\45.png" />
+    <Resource Include="View\Images\PieClocks\50.png" />
+    <Resource Include="View\Images\PieClocks\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\PieClocks\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Stopwatch.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

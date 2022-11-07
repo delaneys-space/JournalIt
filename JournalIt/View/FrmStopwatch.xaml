@@ -1,0 +1,189 @@
+﻿<Window x:Class="JournalIt.View.FrmStopwatch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Path=CogBox.Common.UI.ProductNameStopwatch}"
+        Height="441"
+        Width="683"
+        MinWidth="660"
+        MinHeight="400"
+        xmlns:view="clr-namespace:JournalIt.View"
+        xmlns:converters="clr-namespace:JournalIt.View.Converters"
+        WindowStartupLocation="CenterOwner"
+        Style="{DynamicResource SkinWindowStyle}" 
+        Closing="Window_Closing" Icon="/Delaneys Journal It;component/Stopwatch.ico">
+    <Window.Resources>
+        <converters:TimeConverter      x:Key="timeConverter" />
+        <converters:DateConverter      x:Key="dateConverter" />
+        <converters:NotConverter       x:Key="notConverter" />
+        <converters:OnOffConverter     x:Key="onOffConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.LayoutTransform>
+            <ScaleTransform CenterX="0" CenterY="0"
+                            ScaleX="{Binding Path=CogBox.Common.UI.Scale}"
+                            ScaleY="{Binding Path=CogBox.Common.UI.Scale}"/>
+        </Grid.LayoutTransform>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Name="txtBlkSubject"
+                   Text="Subject:"
+                   VerticalAlignment="Center"/>
+        <TextBox Name="txtSubject"
+                 Text="{Binding Path=Subject, Mode=TwoWay}"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Grid.ColumnSpan="5" />
+        <TextBlock Text="Company:"
+                   VerticalAlignment="Center"
+                   Grid.Row="1"/>
+        <ComboBox Name="cboCompany"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  IsEditable="True"
+                  LostFocus="cboCompany_LostFocus"
+                  ItemsSource="{Binding Path=CogBox.Companies}"
+                  Text="{Binding Path=Company, Mode=TwoWay}"
+                  VerticalAlignment="Center"/>
+
+
+        <TextBlock Grid.Row="2"
+                   Text="Project:"
+                   VerticalAlignment="Center"/>
+        <ComboBox Name="cboProject"
+                  ItemsSource="{Binding Path=CogBox.Projects}"
+                  SelectedItem ="{Binding Path=Project, Mode=OneWay}"
+                  DisplayMemberPath="Name"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  IsEditable="True" 
+                  LostFocus="cboProject_LostFocus" 
+                  VerticalAlignment="Center" />
+
+        <TextBlock Name="txtBlkActivity"
+                   Grid.Row="3"
+                   Text="Activity:"
+                   VerticalAlignment="Center" />
+        <ComboBox Name="cboActivity"
+                  ItemsSource="{Binding Path=CogBox.Activities}"
+                  Text="{Binding Path=Activity, Mode=TwoWay}"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  VerticalAlignment="Center"
+                  LostFocus="cboActivity_LostFocus"
+                  IsEditable="True" />
+        <TextBlock Name="txtStartDate"
+                   Grid.Column="2"
+                   Grid.Row="2"
+                   Text="Date:"
+                   VerticalAlignment="Center"
+                   Margin="12,3,3,3" />
+        <DatePicker Name="pickDateStart"
+                    IsEnabled="{Binding ElementName=chkStopwatch, 
+                                        Path=IsChecked,
+                                        Mode=OneWay, 
+                                        Converter={StaticResource notConverter}}"
+                    SelectedDate="{Binding Path=DateStart, 
+                                           Mode=TwoWay}"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    FirstDayOfWeek="Monday" 
+                    HorizontalAlignment="Left" />
+        <TextBlock Name="txtBlkTimeStart"
+                   Grid.Column="2"
+                   Grid.Row="3"
+                   Text="Time:"
+                   VerticalAlignment="Center"
+                   Margin="12,3,3,3" />
+        <view:MaskedTextBox x:Name="txtTimeStart"
+                          IsEnabled="{Binding ElementName=chkStopwatch,
+                                              Path=IsChecked,
+                                              Mode=OneWay,
+                                              Converter={StaticResource notConverter}}"
+                          Grid.Column="3"
+                          Grid.Row="3"
+                          VerticalAlignment="Center"
+                          InputMask="ii:ii:ii" HorizontalAlignment="Left">
+            <Binding Path="TimeStart"
+                     Mode="TwoWay"
+                     Converter="{StaticResource timeConverter}"/>
+        </view:MaskedTextBox>
+        <TextBlock Name="txtBlkDuration"
+                   Grid.Column="2"
+                   Grid.Row="4"
+                   VerticalAlignment="Center"
+                   Margin="12,3,3,3"
+                   Text="Duration:"/>
+        <view:MaskedTextBox x:Name="txtDuration"
+                            IsEnabled="{Binding ElementName=chkStopwatch, 
+                                                Path=IsChecked, 
+                                                Mode=OneWay,
+                                                Converter={StaticResource notConverter}}"
+                            Grid.Column="3"
+                            Grid.Row="4"
+                            VerticalAlignment="Center"
+                            InputMask="ii:ii:ii"
+                            HorizontalAlignment="Left">
+            <Binding Path="Seconds"
+                     Mode="TwoWay"
+                     Converter="{StaticResource timeConverter}"/>
+        </view:MaskedTextBox>
+        <ToggleButton Name="chkStopwatch"
+                      IsChecked="{Binding Path=CogBox.StopwatchSelected.IsOn, Mode=TwoWay}"
+                      Grid.Column="4"
+                      Grid.Row="3"
+                      MinWidth="23"
+                      MinHeight="23"
+                      Grid.RowSpan="2"
+                      Click="chkStopwatch_Click"
+                      FontSize="18"
+                      FontWeight="Bold"
+                      Content="{Binding Path=CogBox.StopwatchSelected.IsOn, Converter={StaticResource onOffConverter}}"
+                      Background="{DynamicResource Cog}" >
+
+        </ToggleButton>
+        <TextBlock Name="txtBlkNotes"
+                   Grid.Row="4"
+                   Text="Notes:"
+                   VerticalAlignment="Center"/>
+        <TextBlock Name="txtBlkContacts"
+                   Grid.Row="6"
+                   Text="Contacts:"
+                   VerticalAlignment="Center"
+                   Visibility="Hidden" />
+        <TextBox Name="txtNotes"
+                 Text="{Binding Path=Notes, Mode=TwoWay}"
+                 Grid.ColumnSpan="6"
+                 Grid.Row="5"
+                 HorizontalScrollBarVisibility="Disabled"
+                 VerticalScrollBarVisibility="Visible"
+                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
+
+        <Button DockPanel.Dock="Right"
+                Grid.Row="7"
+                Grid.Column="4"
+                Name="btnClose"
+                MinWidth="75"
+                Click="btnClose_Click">
+            <TextBlock Text="Close"/>
+        </Button>
+    </Grid>
+</Window>

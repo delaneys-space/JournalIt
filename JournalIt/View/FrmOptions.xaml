@@ -1,0 +1,106 @@
+﻿<Window xmlns:View="clr-namespace:JournalIt.View"  x:Class="JournalIt.View.FrmOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="{Binding Path=Common.UI.ProductNameOptions}"
+        MinWidth="300"
+        MinHeight="306"
+        Name="FromOptions"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="Height"
+        Width="500"
+        Style="{DynamicResource SkinWindowStyle}" 
+        Closing="FromOptions_Closing" 
+        Icon="/Delaneys Journal It;component/Stopwatch.ico">
+     <StackPanel>
+
+        <StackPanel.LayoutTransform>
+            <ScaleTransform CenterX="0" CenterY="0"
+                            ScaleX="{Binding Path=Common.UI.Scale}"
+                            ScaleY="{Binding Path=Common.UI.Scale}"/>
+        </StackPanel.LayoutTransform>
+
+        <TabControl Margin="{StaticResource marginSize}">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="View"/>
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                    <View:CtrlViewOptions x:Name="ctrlViewOptions" Margin="3"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Defaults"/>
+                </TabItem.Header>
+                <View:CtrlDefaultOptions x:Name="ctrlDefaultOptions" Margin="0,1,0,0"/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Export" />
+                </TabItem.Header>
+                <View:CtrlExportOptions x:Name="ctrlExportOptions" Margin="0,1,0,84"/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="About"/>
+                </TabItem.Header>
+                <View:CtrlAbout Margin="0,24,0,51" x:Name="ctrlAbout"/>
+            </TabItem>
+        </TabControl>
+
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="3,30,3,3"
+                    Name="btnOK"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right"
+                    MinWidth="60"
+                    Width="{Binding ElementName=btnCancel, Path=ActualWidth}"
+                    Click="btnOK_Click" >
+                <TextBlock Text ="  OK  "/>
+            </Button>
+            <StackPanel Orientation="Horizontal"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1"
+                        Grid.Column="1" >
+             <TextBlock Text="Designed and Written by Delaney"
+                        FontSize="10"
+                        VerticalAlignment="Center"
+                        Margin="3"/>               
+            </StackPanel>
+
+
+            <Button Grid.Column="1"
+                    Grid.Row="2"
+                    Name="btnCancel"
+                    HorizontalAlignment="Right"
+                    MinWidth="60"
+                    Click="btnCancel_Click"
+                    Margin="3" >
+                <TextBlock Text="  Cancel  "/>
+            </Button>
+            <Button Grid.Row="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Name="btnResetPosition"
+                    Margin="3,3,0,3"
+                    MinWidth="60"
+                    Click="btnResetPosition_Click"
+                    Grid.ColumnSpan="2" >
+                <TextBlock Text="Reset Timer Position"/>
+            </Button>
+        </Grid>
+
+    </StackPanel>
+</Window>

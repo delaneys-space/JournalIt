@@ -1,0 +1,18 @@
+﻿<Application x:Class="JournalIt.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="View\FrmJournalIt.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- Set default skin -->
+                <ResourceDictionary Source="View\Themes\Skins\ExpressionDark.xaml"/>
+                <ResourceDictionary Source="View\Themes\WindowStyle.xaml"/>
+                
+                <ResourceDictionary Source="View\RecourceDictionary.xaml"/>
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
+    </Application.Resources>
+</Application>

@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JournalIt.Properties" GeneratedClassName="UI">
+  <Profiles />
+  <Settings>
+    <Setting Name="Scale" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ScaleMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.76</Value>
+    </Setting>
+    <Setting Name="ScaleMax" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1.5</Value>
+    </Setting>
+    <Setting Name="StopwatchWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">150</Value>
+    </Setting>
+    <Setting Name="FormWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="StopwatchHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">82</Value>
+    </Setting>
+    <Setting Name="StopwatchMinWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">150</Value>
+    </Setting>
+    <Setting Name="StopwatchMaxWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">400</Value>
+    </Setting>
+    <Setting Name="StopwatchFontSizeSelected" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">35</Value>
+    </Setting>
+    <Setting Name="StopwatchFontSize" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="ScaleChange" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.02</Value>
+    </Setting>
+    <Setting Name="StopwatchWidthChange" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

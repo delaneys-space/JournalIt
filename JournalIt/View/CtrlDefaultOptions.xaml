@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="JournalIt.View.CtrlDefaultOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Data Folder:"
+               VerticalAlignment="Center" />
+        <TextBox Grid.Column="1"
+                 Grid.Row="0"
+                 Name="txtDataFolder"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding Path=Common.DataFolder}" HorizontalContentAlignment="Stretch" />
+
+        <TextBlock Text="Company:"
+               Grid.Row="1"
+               VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1"
+                  Grid.Row="1"
+                  Name="cboCompany"
+                  VerticalAlignment="Center"
+                  Grid.ColumnSpan="2"
+                  IsEditable="True"
+                  ItemsSource="{Binding Path=Companies}"
+                  Text="{Binding Path=Common.DefaultCompany}"
+                  LostFocus="cboCompany_LostFocus"/>
+
+        <TextBlock Text="Project:"
+               Grid.Row="2"
+               VerticalAlignment="Center" />
+        <ComboBox Name="cboProject"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  VerticalAlignment="Center"
+                  Grid.ColumnSpan="4"
+                  IsEditable="True"
+                  DisplayMemberPath="Name"
+                  Text="{Binding Path=Common.DefaultProject.Name}"
+                  ItemsSource="{Binding Path=Projects}"
+                  LostFocus="cboProject_LostFocus"/>
+
+        <TextBlock Text="Type:"
+               Grid.Row="3"
+               VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1"
+                  Grid.Row="3"
+                  Name="cboType"
+                  VerticalAlignment="Center"
+                  Grid.ColumnSpan="4"
+                  IsEditable="True"
+                  ItemsSource="{Binding Path=Types}"
+                  Text="{Binding Path=Common.DefaultType}"
+                  LostFocus="cboType_LostFocus"/>
+
+        <TextBlock Text="Min Interval:"
+               Grid.Row="4"
+               VerticalAlignment="Center" />
+        <TextBox Grid.Column="1"
+                 Grid.Row="4"
+                 Name="txtMinimumMinutes"
+                 VerticalAlignment="Center"
+                 MinWidth="30"
+                 MaxWidth="30" 
+                 Text="{Binding Path=Common.MinimumMinutes}" />
+
+    </Grid>
+</UserControl>
